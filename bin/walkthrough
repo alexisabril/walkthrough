@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+var program = require('commander');
+var connect = require('connect');
+var walkthrough = require('../lib/walkthrough');
+var pkg = require('../package.json');
+
+program.version(pkg.version)
+	.usage('[options]')
+	.description(pkg.description)
+	.option('-p, --port [port]', 'The port to run the server on. Defaults to 4001.')
+	.parse(process.argv);
+
+var cwd = process.cwd();
+
+var app = connect()
+	.use(connect.directory(cwd))
+	.use(walkthrough)
+	.use(connect.static(cwd));
+
+app.listen(program.port || 4001);

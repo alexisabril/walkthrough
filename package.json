@@ -1,0 +1,32 @@
+{
+	"name": "walkthrough",
+	"version": "0.1.0",
+	"author": "Alexis Abril <me@alexisabril.com>",
+	"description": "a simple command line markdown server",
+	"contributors": [{
+		"name": "Alexis Abril",
+		"email": "me@alexisabril.com"
+	}],
+	"main": "lib/walkthrough.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alexisabril/walkthrough.git"
+	},
+	"keywords": [
+		"markdown",
+		"preview",
+		"server"
+	],
+	"dependencies" : {
+		"connect": "2.9.x",
+		"connect-injector": "0.2.x",
+		"markdown": "0.5.x",
+		"ejs": "0.8.x",
+		"promised-io": "0.3.x",
+		"commander": "2.0.x"
+	},
+	"devDependencies": {
+	},
+	"bin": "bin/walkthrough",
+	"license": "MIT"
+}
