@@ -17,4 +17,7 @@ var app = connect()
 	.use(walkthrough)
 	.use(connect.static(cwd));
 
-app.listen(program.port || 4001);
+var port = program.port || 4001;
+app.listen(port);
+console.log('\n> Listening on http://localhost:' + port);
+console.log('> Press CTRL+C to exit\n');
