@@ -7,17 +7,39 @@ var pkg = require('../package.json');
 program.version(pkg.version)
 	.usage('[options]')
 	.description(pkg.description)
-	.option('-p, --port [port]', 'The port to run the server on. Defaults to 4001.')
+	.option('-p, --port [port]', 'The port to run the server on')
+	.option('--gfm', 'Enable GitHub flavored markdown')
+	.option('--tables', 'Enable GFM tables, requires --gfm option')
+	.option('--breaks', 'Enable GFM line breaks, requires --gfm option')
+	.option('--pedantic', 'Don\'t fix any of the original markdown bugs or poor behavior')
+	.option('--sanitize', 'Ignore any HTML that has been input')
+	.option('--smartLists', 'Use smarter list behavior than the original markdown')
+	.option('--smartypants', 'Use \'smart\' typograhic punctuation for things like quotes and dashes')
+	.option('--langPrefix [prefix]', 'Set the prefix for code block classes')
+	.option('--theme [theme]', 'Set the theme for code blocks. http://igniteflow.com/pygments/themes')
 	.parse(process.argv);
 
 var cwd = process.cwd();
 
+var opts = ['gfm', 'tables', 'breaks', 'pedantic', 'sanitize', 'smartLists', 'smartypants'];
+var config = {};
+
+opts.forEach(function(opt) {
+	config[opt] = program[opt] || false;
+});
+
+config.langPrefix = program.langPrefix || 'lang-';
+config.theme = program.theme || 'github';
+
+walkthrough.config(config);
+
 var app = connect()
 	.use(connect.directory(cwd))
-	.use(walkthrough)
+	.use(walkthrough.parser)
 	.use(connect.static(cwd));
 
 var port = program.port || 4001;
 app.listen(port);
+
 console.log('\n> Listening on http://localhost:' + port);
 console.log('> Press CTRL+C to exit\n');

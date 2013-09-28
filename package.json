@@ -2,7 +2,7 @@
 	"name": "walkthrough",
 	"version": "0.1.0",
 	"author": "Alexis Abril <me@alexisabril.com>",
-	"description": "a simple command line markdown server",
+	"description": "A simple command line markdown server",
 	"contributors": [{
 		"name": "Alexis Abril",
 		"email": "me@alexisabril.com"
@@ -20,12 +20,15 @@
 	"dependencies" : {
 		"connect": "2.9.x",
 		"connect-injector": "0.2.x",
-		"markdown": "0.5.x",
+		"marked": "0.2.x",
 		"ejs": "0.8.x",
 		"promised-io": "0.3.x",
-		"commander": "2.0.x"
+		"commander": "2.0.x",
+		"pygmentize-bundled": "2.1.x"
 	},
 	"devDependencies": {
+		"mocha": "1.13.x",
+		"chai": "1.8.x"
 	},
 	"bin": "bin/walkthrough",
 	"license": "MIT"
