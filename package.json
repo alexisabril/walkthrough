@@ -1,6 +1,6 @@
 {
 	"name": "walkthrough",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"author": "Alexis Abril <me@alexisabril.com>",
 	"description": "A simple command line markdown server",
 	"contributors": [{
