@@ -40,7 +40,8 @@ walkthrough.config(config);
 var app = connect()
 	.use(connect.directory(cwd))
 	.use(walkthrough.parser)
-	.use(connect.static(cwd));
+	.use(connect.static(cwd))
+	.use('/__walkthrough', connect.static(__dirname + '/../lib'));
 
 var port = program.port || 4001;
 app.listen(port);
