@@ -4,6 +4,10 @@ var connect = require('connect');
 var walkthrough = require('../lib/walkthrough');
 var pkg = require('../package.json');
 
+var themeDesc = 'Set the theme for code blocks. \n\nAvailable themes: ' +
+	walkthrough.themes.join(', ') +
+	'\n\nPreview themes at: http://igniteflow.com/pygments/themes'
+
 program.version(pkg.version)
 	.usage('[options]')
 	.description(pkg.description)
@@ -16,7 +20,7 @@ program.version(pkg.version)
 	.option('--smartLists', 'Use smarter list behavior than the original markdown')
 	.option('--smartypants', 'Use \'smart\' typograhic punctuation for things like quotes and dashes')
 	.option('--langPrefix [prefix]', 'Set the prefix for code block classes')
-	.option('--theme [theme]', 'Set the theme for code blocks. http://igniteflow.com/pygments/themes')
+	.option('--theme [theme]', themeDesc)
 	.parse(process.argv);
 
 var cwd = process.cwd();
