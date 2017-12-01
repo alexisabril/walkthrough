@@ -1,3 +1,5 @@
+__DEPRECATED__: This project has been archived, but may be re-opened if brought back up to speed.
+
 # Walkthrough
 
 Walkthrough is a simple, command line, markdown server. A mashup of connect & markdown, any *.markdown or *.md files are processed and placed in a simple html wrapper for instant viewing.
